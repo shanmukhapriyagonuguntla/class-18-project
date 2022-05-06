@@ -20,59 +20,59 @@ function preload(){
 
 function setup(){
   
-//create a canvas
+  //create a canvas
 
-// createCanvas(window,window);
-createCanvas(windowWidth,windowHeight);
-// createCanvas(width,height);
-// createCanvas(200,200);
+  // createCanvas(window,window);
+  createCanvas(windowWidth,windowHeight);
+  // createCanvas(width,height);
+  // createCanvas(200,200);
 
-// Moving background
+  // Moving background
 
-path=createSprite(width/2,200);
-path.addImage(pathImg);
-path.velocityY = 4;
+  path=createSprite(width/2,200);
+  path.addImage(pathImg);
+  path.velocityY = 4;
 
 
-//creating boy running
-boy = createSprite(width/2,height-20,20,20);
-boy.addAnimation("SahilRunning",boyImg);
-boy.scale=0.08;
-  
-  
-cashG=new Group();
-diamondsG=new Group();
-jwelleryG=new Group();
-swordGroup=new Group();
+  //creating boy running
+  boy = createSprite(width/2,height-20,20,20);
+  boy.addAnimation("SahilRunning",boyImg);
+  boy.scale=0.08;
+
+
+  cashG=new Group();
+  diamondsG=new Group();
+  jwelleryG=new Group();
+  swordGroup=new Group();
 
 }
 
 function draw() {
 
   if(gameState===PLAY){
-  background(0);
-  boy.x = World.mouseX;
-  
-  edges= createEdgeSprites();
-  boy.collide(edges);
-  
-  //code to reset the background
+    background(0);
+    boy.x = World.mouseX;
 
-  // if(path.x > height ){
-  //   path.x = height/2;
-  // }
+    edges= createEdgeSprites();
+    boy.collide(edges);
 
-  // if(path.y > height ){
-  //   path.x = height/2;
-  // }
+    //code to reset the background
 
-  // if(path.x > height ){
-  //   path.y = height;
-  // }
+    // if(path.x > height ){
+    //   path.x = height/2;
+    // }
 
-  if(path.y > height ){
-     path.y = height/2;
-  }
+    // if(path.y > height ){
+    //   path.x = height/2;
+    // }
+
+    // if(path.x > height ){
+    //   path.y = height;
+    // }
+
+    if(path.y > height ){
+       path.y = height/2;
+    }
   
     createCash();
     createDiamonds();
@@ -123,44 +123,44 @@ function draw() {
 
 function createCash() {
   if (World.frameCount % 200 == 0) {
-  var cash = createSprite(Math.round(random(50, width-50),40, 10, 10));
-  cash.addImage(cashImg);
-  cash.scale=0.12;
-  cash.velocityY = 5;
-  cash.lifetime = 200;
-  cashG.add(cash);
+    var cash = createSprite(Math.round(random(50, width-50),40, 10, 10));
+    cash.addImage(cashImg);
+    cash.scale=0.12;
+    cash.velocityY = 5;
+    cash.lifetime = 200;
+    cashG.add(cash);
   }
 }
 
 function createDiamonds() {
   if (World.frameCount % 320 == 0) {
-  var diamonds = createSprite(Math.round(random(50, width-50),40, 10, 10));
-  diamonds.addImage(diamondsImg);
-  diamonds.scale=0.03;
-  diamonds.velocityY = 5;
-  diamonds.lifetime = 200;
-  diamondsG.add(diamonds);
+    var diamonds = createSprite(Math.round(random(50, width-50),40, 10, 10));
+    diamonds.addImage(diamondsImg);
+    diamonds.scale=0.03;
+    diamonds.velocityY = 5;
+    diamonds.lifetime = 200;
+    diamondsG.add(diamonds);
 }
 }
 
 function createJwellery() {
   if (World.frameCount % 410 == 0) {
-  var jwellery = createSprite(Math.round(random(50, width-50),40, 10, 10));
-  jwellery.addImage(jwelleryImg);
-  jwellery.scale=0.13;
-  jwellery.velocityY = 5;
-  jwellery.lifetime = 200;
-  jwelleryG.add(jwellery);
+    var jwellery = createSprite(Math.round(random(50, width-50),40, 10, 10));
+    jwellery.addImage(jwelleryImg);
+    jwellery.scale=0.13;
+    jwellery.velocityY = 5;
+    jwellery.lifetime = 200;
+    jwelleryG.add(jwellery);
   }
 }
 
 function createSword(){
   if (World.frameCount % 530 == 0) {
-  var sword = createSprite(Math.round(random(50, width-50),40, 10, 10));
-  sword.addImage(swordImg);
-  sword.scale=0.1;
-  sword.velocityY = 4;
-  sword.lifetime = 200;
-  swordGroup.add(sword);
+    var sword = createSprite(Math.round(random(50, width-50),40, 10, 10));
+    sword.addImage(swordImg);
+    sword.scale=0.1;
+    sword.velocityY = 4;
+    sword.lifetime = 200;
+    swordGroup.add(sword);
   }
 }
